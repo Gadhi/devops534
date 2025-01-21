@@ -1,172 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    table, th, td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      width: 100%;
-    }
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    /* Styling for the two-column layout */
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-    }
-    .left-content {
-      width: 50%;
-      padding: 10px;
-      border-radius: 8px;
-    }
-    .right-content {
-      width: 45%;
-      padding: 10px;
-      border-radius: 8px;
-    }
-    /* Styling for the registration form */
-    .form-container form {
-      padding: 10px;
-      border-radius: 8px;
-      width: 100%;
-    }
-    .input-box {
-      margin-bottom: 20px;
-    }
-    .input-box span {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .input-box input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    .gender-info {
-      margin-top: 10px;
-    }
-    .gender-info span {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .gender-info label {
-      margin-right: 15px;
-    }
-    .button {
-      text-align: center;
-    }
-    .button input {
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-    }
-    .button input:hover {
-      background-color: #45a049;
-    }
-  </style>
-</head>
-<body>
-    <img src="sasi.png" alt="Image" style="width:25%;">
-    <div><center>
-        <h1>DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</h1></center>    
-    </div>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 8px 0;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
 
-<!-- Main Content Section -->
 <div class="container">
-  <!-- Left Content: Vision and Mission -->
-  <div class="left-content">
-    <h1><u>VISION</u></h1>
-    <h3>To escalate the department by creativeness in technology<br>for emerging and global needs through Training, Research &<br>Development.</h3>
+    <h2>Registration Form</h2>
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+        <span id="nameError" class="error"></span>
 
-    <h1><u>MISSION</u></h1>
-    <ol>
-        <li>To impart training to students in emerging technologies for product development.</li>
-        <li>To promote research & innovation skills through professional guidance.</li>
-        <li>To develop social technologies that solve societal problems using technology.</li>
-        <li>To produce professionals with strong values and a zeal to serve society.</li>
-        <li>To create leaders with strong communication skills who can drive and inspire their teams.</li>
-    </ol>
-  </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <span id="emailError" class="error"></span>
 
-  <!-- Right Content: Registration Form -->
-  <div class="right-content">
-    <h2>Registration</h2>
-    <form action="#">
-      <div class="input-box">
-        <span>Full Name:</span>
-        <input type="text" placeholder="Enter your name" required>
-      </div>
-      <div class="input-box">
-        <span>Username:</span>
-        <input type="text" placeholder="Enter your username" required>
-      </div>
-      <div class="input-box">
-        <span>Email ID:</span>
-        <input type="email" placeholder="Enter your email" required>
-      </div>
-      <div class="input-box">
-        <span>Phone No:</span>
-        <input type="tel" placeholder="Enter your mobile number" required>
-      </div>
-      <div class="input-box">
-        <span>Password:</span>
-        <input type="password" placeholder="Enter a valid password" required>
-      </div>
-      <div class="input-box">
-        <span>Confirm Password:</span>
-        <input type="password" placeholder="Confirm your password" required>
-      </div>
-      <div class="input-box">
-        <span>Date of Birth:</span>
-        <input type="date" required>
-      </div>  
-      <div class="input-box">
-      <span>Select Course:</span>
-                        <select id="course" name="course" required>
-                            <option value=""></option>
-                            <option value="CSE">Computer Science and Engineering</option>
-                            <option value="ECE">Electronics and Communication Engineering</option>
-                            <option value="AIML">Artificial Intelligence and Machine Learning</option>
-                        </select>
-      </div>
-      <div class="input-box">
-      <span>Address:</span>
-      <textarea id="address" name="address" rows="4" required></textarea>
-      </div>
-      <!-- Gender Selection -->
-      <div class="gender-info">
-        <span>Gender:</span>
-        <label for="male">
-          <input type="radio" name="gender" id="male">
-          Male
-        </label>
-        <label for="female">
-          <input type="radio" name="gender" id="female">
-          Female
-        </label>
-        <label for="prefer-not-to-say">
-          <input type="radio" name="gender" id="prefer-not-to-say">
-          Prefer not to say
-        </label>
-      </div>
-      <!-- Submit Button -->
-      <div class="button">
-        <input type="submit" value="REgister">
-      </div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required minlength="6">
+        <span id="passwordError" class="error"></span>
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+        <span id="dobError" class="error"></span>
+
+        <button type="submit">Register</button>
     </form>
-  </div>
 </div>
+
+<script>
+    function validateForm() {
+        let isValid = true;
+        
+        // Clear previous error messages
+        document.getElementById('nameError').textContent = '';
+        document.getElementById('emailError').textContent = '';
+        document.getElementById('passwordError').textContent = '';
+        document.getElementById('dobError').textContent = '';
+
+        // Validate Full Name (should not be empty)
+        const name = document.getElementById('fullName').value.trim();
+        if (name === '') {
+            document.getElementById('nameError').textContent = 'Full Name is required';
+            isValid = false;
+        }
+
+        // Validate Email (check if it's in a proper format)
+        const email = document.getElementById('email').value.trim();
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email.match(emailPattern)) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            isValid = false;
+        }
+
+        // Validate Password (minimum 6 characters)
+        const password = document.getElementById('password').value.trim();
+        if (password.length < 6) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long';
+            isValid = false;
+        }
+
+        // Validate Date of Birth (ensure a date is selected)
+        const dob = document.getElementById('dob').value.trim();
+        if (dob === '') {
+            document.getElementById('dobError').textContent = 'Date of Birth is required';
+            isValid = false;
+        }
+
+        return isValid; // If false, form won't submit
+    }
+</script>
+
 </body>
 </html>
